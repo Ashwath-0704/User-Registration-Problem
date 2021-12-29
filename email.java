@@ -5,7 +5,8 @@ import java.util.regex.*;
 import javax.swing.JOptionPane;
 
 public class email {
-	
+	static ArrayList<String> firstName = new ArrayList<>();
+
 	/*
 	 * As a User need to enter a valid First Name -First name starts with Cap and
 	 * has minimum 3 characters
@@ -139,5 +140,6 @@ public class email {
 //		passwordRule4(); // UC8
 		emailTesting(); // UC9
 		System.out.print(arr);
+
 	}
 }
