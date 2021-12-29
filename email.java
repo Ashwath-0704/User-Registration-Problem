@@ -68,12 +68,24 @@ public class email {
 		Matcher m = p.matcher(passwordRule1);
 		System.out.println(passwordRule1 + "--->" + m.matches());
 	}
+
+	/*
+	 * Rule2 – Should have at least 1 Upper Case - NOTE – All rules must be passed
+	 */
+	public static void passwordRule2() {
+		String passwordRule1 = JOptionPane.showInputDialog("Enter password (Rule-2 atleast one Uppercase character) ");
+		String regex = "^(?=.*[a-z])(?=.*[A-Z]){8,}.*$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(passwordRule1);
+		System.out.println(passwordRule1 + "--->" + m.matches());
+	}
 	public static void main(String[] args) {
 		
 //		firstName(); //UC1
 //		lastName();  //UC2
 //		emailId(); //UC3
 //		phonenumber(); // UC4
-		passwordRule1(); // UC5
+//		passwordRule1(); // UC5
+		passwordRule2(); // UC6
 	}
 }
