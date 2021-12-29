@@ -104,6 +104,29 @@ public class email {
 		Matcher m = p.matcher(passwordRule1);
 		System.out.println(passwordRule1 + "--->" + m.matches());
 	}
+
+	/*
+	 * Should clear all email samples provided separately
+	 */
+	static ArrayList<String> arr = new ArrayList<>();
+
+	public static void emailTesting() {
+		Integer num = Integer.parseInt(JOptionPane.showInputDialog("Enter number of mail id you want to add ?"));
+		for (int i = 0; i < num; i++) {
+			arr.add(emailId());
+		}
+	}
+
+	/*|----------------------------------------------------|
+	 *|		(Valid) 			|		(Invalid)		   |	
+	 *|-------------------------|--------------------------|
+	 *| 	abc@yahoo.com 		|		abc123@.com		   |
+	 *|  	abc-100@yahoo.com 	|		abc.@gmail.com	   |	
+	 *| 	abc.100@yahoo.com 	|		abc@gmail.com.1a   |  	
+	 *| 	abc111@abc.com		|    	abc@abc@gmail.com  |
+	 *| 	abc+100@gmail.com  	|		abc@gmail.com.1a   |
+	 *|----------------------------------------------------|
+	 */
 	public static void main(String[] args) {
 		
 //		firstName(); //UC1
@@ -113,6 +136,8 @@ public class email {
 //		passwordRule1(); // UC5
 //		passwordRule2(); // UC6
 //		passwordRule3(); // UC7
-		passwordRule4(); // UC8
+//		passwordRule4(); // UC8
+		emailTesting(); // UC9
+		System.out.print(arr);
 	}
 }
