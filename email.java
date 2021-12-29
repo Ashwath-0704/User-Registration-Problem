@@ -13,7 +13,7 @@ public class email {
 	 */
 	public static void firstName() {
 		String firstName = JOptionPane.showInputDialog("Enter first name");
-		String regex = "^[A-Z]{1}[a-z]{2,}$";
+		final String regex = "^[A-Z]{1}[a-z]{2,}$";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(firstName);
 		System.out.println(firstName + "--->" + m.matches());
@@ -25,7 +25,7 @@ public class email {
 	 */
 	public static void lastName() {
 		String lastName = JOptionPane.showInputDialog("Enter last name");
-		String regex = "^[A-Z]{1}[a-z]{2,}$";
+		final String regex = "^[A-Z]{1}[a-z]{2,}$";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(lastName);
 		System.out.println(lastName + "--->" + m.matches());
@@ -38,7 +38,7 @@ public class email {
 	 */
 	public static String emailId() {
 		String emailId = JOptionPane.showInputDialog("Enter email id");
-		String regex = "[A-Za-z0-9.+-]*[a-zA-Z0-9]+[@][a-z0-9]+[.][a-z]+[.]?[a-z]+";
+		final String regex = "[A-Za-z0-9.+-]*[a-zA-Z0-9]+[@][a-z0-9]+[.][a-z]+[.]?[a-z]+";
 //		String regex = "^(?=.[A-Za-z0-9.+-])+@([a-z]{1,}.[a-z]{2,})"; // doutu
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(emailId);
@@ -52,7 +52,7 @@ public class email {
 	 */
 	public static void phonenumber() {
 		String phonenumber = JOptionPane.showInputDialog("Enter phone number");
-		String regex = "(91/s)[5-9][0-9]{9}";
+		final String regex = "(91/s)[5-9][0-9]{9}";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(phonenumber);
 		System.out.println(phonenumber + "--->" + m.matches());
@@ -64,7 +64,7 @@ public class email {
 	 */
 	public static void passwordRule1() {
 		String passwordRule1 = JOptionPane.showInputDialog("Enter password only (Rule-1 character) ");
-		String regex = "^.*[a-zA-Z]{8,}.*$";
+		final String regex = "^.*[a-zA-Z]{8,}.*$";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(passwordRule1);
 		System.out.println(passwordRule1 + "--->" + m.matches());
@@ -75,7 +75,7 @@ public class email {
 	 */
 	public static void passwordRule2() {
 		String passwordRule1 = JOptionPane.showInputDialog("Enter password (Rule-2 atleast one Uppercase character) ");
-		String regex = "^(?=.*[a-z])(?=.*[A-Z]){8,}.*$";
+		final String regex = "^(?=.*[a-z])(?=.*[A-Z]){8,}.*$";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(passwordRule1);
 		System.out.println(passwordRule1 + "--->" + m.matches());
@@ -88,7 +88,7 @@ public class email {
 	public static void passwordRule3() {
 		String passwordRule1 = JOptionPane
 				.showInputDialog("Enter password (Rule-3) at least 1 numeric with character ");
-		String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,}.*$";
+		final String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,}.*$";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(passwordRule1);
 		System.out.println(passwordRule1 + "--->" + m.matches());
@@ -100,7 +100,7 @@ public class email {
 	 */
 	public static void passwordRule4() {
 		String passwordRule1 = JOptionPane.showInputDialog("Enter password (Rule-3) at least 1 Special Character ");
-		String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[-+(){}_!@#$%^&*., ?]){8,}.*$";
+		final String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[-+(){}_!@#$%^&*., ?]){8,}.*$";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(passwordRule1);
 		System.out.println(passwordRule1 + "--->" + m.matches());
