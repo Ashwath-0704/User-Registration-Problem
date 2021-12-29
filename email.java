@@ -79,6 +79,19 @@ public class email {
 		Matcher m = p.matcher(passwordRule1);
 		System.out.println(passwordRule1 + "--->" + m.matches());
 	}
+
+	/*
+	 * Rule3– Should have at least 1 numeric number in the password - NOTE – All
+	 * rules must be passed
+	 */
+	public static void passwordRule3() {
+		String passwordRule1 = JOptionPane
+				.showInputDialog("Enter password (Rule-3) at least 1 numeric with character ");
+		String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,}.*$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(passwordRule1);
+		System.out.println(passwordRule1 + "--->" + m.matches());
+	}
 	public static void main(String[] args) {
 		
 //		firstName(); //UC1
@@ -86,6 +99,7 @@ public class email {
 //		emailId(); //UC3
 //		phonenumber(); // UC4
 //		passwordRule1(); // UC5
-		passwordRule2(); // UC6
+//		passwordRule2(); // UC6
+		passwordRule3(); // UC7
 	}
 }
