@@ -61,5 +61,14 @@ public class emailTest{
     	boolean emailJUnitTesting=email.emailId();
     	Assert.assertEquals(true, emailJUnitTesting);
     }
-    
+    @Test
+    public void sadJUnitTesting(){
+    	String sadJUnitTesting=moodanalyser.analysemood("This is a Sad message");
+    	Assert.assertEquals("SAD", sadJUnitTesting);
+    }
+    @Test
+    public void happyJUnitTesting(){
+    	String sadJUnitTesting=moodanalyser.analysemood("This is a Happy message");
+    	Assert.assertEquals("HAPPY", sadJUnitTesting);
+    }    
 }
