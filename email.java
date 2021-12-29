@@ -17,8 +17,21 @@ public class email {
 		Matcher m = p.matcher(firstName);
 		System.out.println(firstName + "--->" + m.matches());
 	}
+
+	/*
+	 * As a User need to enter a valid Last Name - Last name starts with Cap and has
+	 * minimum 3 characters
+	 */
+	public static void lastName() {
+		String lastName = JOptionPane.showInputDialog("Enter last name");
+		String regex = "^[A-Z]{1}[a-z]{2,}$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(lastName);
+		System.out.println(lastName + "--->" + m.matches());
+	}
 	public static void main(String[] args) {
 		
-		firstName(); //UC1
+//		firstName(); //UC1
+		lastName();  //UC2
 	}
 }
