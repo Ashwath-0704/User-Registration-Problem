@@ -56,11 +56,24 @@ public class email {
 		Matcher m = p.matcher(phonenumber);
 		System.out.println(phonenumber + "--->" + m.matches());
 	}
+
+	/*
+	 * As a User need to follow pre-definedPassword rules. Rule1– minimum 8
+	 * Characters - NOTE – All rules must be passed
+	 */
+	public static void passwordRule1() {
+		String passwordRule1 = JOptionPane.showInputDialog("Enter password only (Rule-1 character) ");
+		String regex = "^.*[a-zA-Z]{8,}.*$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(passwordRule1);
+		System.out.println(passwordRule1 + "--->" + m.matches());
+	}
 	public static void main(String[] args) {
 		
 //		firstName(); //UC1
 //		lastName();  //UC2
 //		emailId(); //UC3
-		phonenumber(); // UC4
+//		phonenumber(); // UC4
+		passwordRule1(); // UC5
 	}
 }
