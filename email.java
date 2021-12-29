@@ -45,10 +45,22 @@ public class email {
 		return emailId;
 	}
 
+	/*
+	 * As a User need to follow pre -defined Mobile Format - E.g. 91 9919819801 -
+	 * Country code follow by space and 10 digit number
+	 */
+	public static void phonenumber() {
+		String phonenumber = JOptionPane.showInputDialog("Enter phone number");
+		String regex = "(91/s)[5-9][0-9]{9}";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(phonenumber);
+		System.out.println(phonenumber + "--->" + m.matches());
+	}
 	public static void main(String[] args) {
 		
 //		firstName(); //UC1
 //		lastName();  //UC2
-		emailId(); //UC3
+//		emailId(); //UC3
+		phonenumber(); // UC4
 	}
 }
