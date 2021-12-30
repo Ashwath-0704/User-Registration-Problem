@@ -5,7 +5,6 @@ import java.util.regex.*;
 import javax.swing.JOptionPane;
 
 public class email {
-	static ArrayList<String> firstName = new ArrayList<>();
 
 	/*
 	 * As a User need to enter a valid First Name -First name starts with Cap and
@@ -38,8 +37,10 @@ public class email {
 	 * mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and .
 	 * positions
 	 */
-	public static boolean emailId() {
-		String emailId = JOptionPane.showInputDialog("Enter email id");
+
+
+	public static boolean emailId(String emailId) {
+//		String emailId = JOptionPane.showInputDialog("Enter email id");
 		final String regex = "[A-Za-z0-9.+-]*[a-zA-Z0-9]+[@][a-z0-9]+[.][a-z]+[.]?[a-z]+";
 //		String regex = "^(?=.[A-Za-z0-9.+-])+@([a-z]{1,}.[a-z]{2,})"; // doutu
 		Pattern p = Pattern.compile(regex);
@@ -121,6 +122,7 @@ public class email {
 		String emailId = JOptionPane.showInputDialog("Enter email id");
 		final String regex = "[A-Za-z0-9.+-]*[a-zA-Z0-9]+[@][a-z0-9]+[.][a-z]+[.]?[a-z]+";
 //		String regex = "^(?=.[A-Za-z0-9.+-])+@([a-z]{1,}.[a-z]{2,})"; // doutu
+//		String regex = "^[A-Za-z0-9.+-]+@[a-z0-9]+[.][a-z]+$"; 
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(emailId);
 		System.out.println(emailId + "--->" + m.matches());
@@ -133,7 +135,6 @@ public class email {
 			arr.add(emailIdSting());
 		}
 	}
-
 	/*|----------------------------------------------------|
 	 *|		(Valid) 			|		(Invalid)		   |	
 	 *|-------------------------|--------------------------|
