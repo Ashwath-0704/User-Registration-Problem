@@ -2,6 +2,8 @@ package com.javapractices;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import Regax.InvalidUserInputException;
 import Regax.email;
 import java.util.Arrays;
 import java.util.Collection;
@@ -10,9 +12,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.assertEquals;
-/**
- * Email Test :-)
- */
+
 /*|----------------------------------------------------|
  *|		(Valid) 			|		(Invalid)		   |	
  *|-------------------------|--------------------------|
@@ -24,63 +24,76 @@ import static org.junit.Assert.assertEquals;
  *|----------------------------------------------------|
  */
 @RunWith(Parameterized.class)
-public class emailTest{
-    
-	   private String inputEmailId;
-	   private Boolean expectedResult;
-	  	   
-	   public emailTest(String inputEmailId, Boolean expectedResult) {
-	      this.inputEmailId = inputEmailId;
-	      this.expectedResult = expectedResult;
-	   }
+public class emailTest {
 
-	   @Parameterized.Parameters
-	   public static Collection emailIds() {
-	      return Arrays.asList(new Object[][] {
-	         { "abc@yahoo.com", true },
-	         { "abc-100@yahoo.com", true},
-	         {"abc+100@gmail.com", true},
-	         { "abc.100@yahoo.com", true },
-	         { "abc@gmail.com.1a", false },
-	         { "abc@abc@gmail.com", false },
-	         {"abc.@gmail.com",false},
-	         {"abc@gmail.com.1a",false}
-	      });
-	   }
-	   
-	   @Test
-	   public void testEmailId() {
-	      assertEquals(expectedResult, email.emailId(inputEmailId));
-	   }
-	
+	private String inputEmailId;
+	private Boolean expectedResult;
+
+	public emailTest(String inputEmailId, Boolean expectedResult) {
+		this.inputEmailId = inputEmailId;
+		this.expectedResult = expectedResult;
+	}
+
+	@Parameterized.Parameters
+	public static Collection emailIds() {
+		return Arrays.asList(new Object[][] {
+
+				{ "", true }, // null
+				{ "abc-100@yahoo.com", true }, // true
+				{ "abc+100@gmail.com", true }, 
+				{ "abc.100@yahoo.com", true }, 
+				{ "abc@gmail.com.1a", false }, // false
+				{ "abc@abc@gmail.com", false },
+				{ "abc.@gmail.com", false }, 
+				{ "abc@gmail.com.1a", false }});
+	}
+
 	@Test
-    public void firstNameTest(){
-    	boolean firstResult=email.firstName();
-    	Assert.assertEquals(true,firstResult);
-    }
+	public void testEmailId() {
+		try {
+			assertEquals(expectedResult, email.emailId(inputEmailId));
+		} catch (InvalidUserInputException e) {
+			System.out.println("Invalid email id");
+		}
+	}
+
 	@Test
-    public void lastNameTest() {
-		boolean lastresult =email.lastName();
-    	Assert.assertEquals(true,lastresult);
-    }
+	public void firstNameTest() {
+		try {
+			boolean firstResult = email.firstName();
+			Assert.assertEquals(true, firstResult);
+		} catch (InvalidUserInputException e) {
+			System.out.println("Invalid first name");
+		}
+	}
+
 	@Test
-    public void phoneNumberTest(){
-		boolean phoneNumberresult = email.phonenumber();
-    	Assert.assertEquals(true,phoneNumberresult);
-    }
+	public void lastNameTest() {
+		try {
+			boolean lastresult = email.lastName();
+			Assert.assertEquals(true, lastresult);
+		} catch (InvalidUserInputException e) {
+			System.out.println("Invalid last name");
+		}
+	}
+
 	@Test
-    public void passwordRule4Test(){
-		boolean passwordRule4Result=email.passwordRule4();
-    	Assert.assertEquals(true, passwordRule4Result);
-    }
-    @Test
-    public void sadJUnitTesting(){
-    	String sadJUnitTesting=moodanalyser.analysemood("This is a Sad message");
-    	Assert.assertEquals("SAD", sadJUnitTesting);
-    }
-    @Test
-    public void happyJUnitTesting(){
-    	String sadJUnitTesting=moodanalyser.analysemood("This is a Happy message");
-    	Assert.assertEquals("HAPPY", sadJUnitTesting);
-    }    
+	public void phoneNumberTest() {
+		try {
+			boolean phoneNumberresult = email.phonenumber();
+			Assert.assertEquals(true, phoneNumberresult);
+		} catch (InvalidUserInputException e) {
+			System.out.println("Invalid phone number");
+		}
+	}
+
+	@Test
+	public void passwordRule4Test() {
+		try {
+			boolean passwordRule4Result = email.passwordRule4();
+			Assert.assertEquals(true, passwordRule4Result);
+		} catch (InvalidUserInputException e) {
+			System.out.println("Invalid password");
+		}
+	}
 }
