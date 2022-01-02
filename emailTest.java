@@ -4,7 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Regax.InvalidUserInputException;
-import Regax.email;
+import Regax.UserRegistration;
+import Regax.UserRegistration;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.*;
@@ -51,7 +52,7 @@ public class emailTest {
 	@Test
 	public void testEmailId() {
 		try {
-			assertEquals(expectedResult, email.emailId(inputEmailId));
+			assertEquals(expectedResult, UserRegistration.emailId(inputEmailId));
 		} catch (InvalidUserInputException e) {
 			System.out.println("Invalid email id");
 		}
@@ -60,7 +61,7 @@ public class emailTest {
 	@Test
 	public void firstNameTest() {
 		try {
-			boolean firstResult = email.firstName();
+			boolean firstResult = UserRegistration.firstName();
 			Assert.assertEquals(true, firstResult);
 		} catch (InvalidUserInputException e) {
 			System.out.println("Invalid first name");
@@ -70,7 +71,7 @@ public class emailTest {
 	@Test
 	public void lastNameTest() {
 		try {
-			boolean lastresult = email.lastName();
+			boolean lastresult = UserRegistration.lastName();
 			Assert.assertEquals(true, lastresult);
 		} catch (InvalidUserInputException e) {
 			System.out.println("Invalid last name");
@@ -80,7 +81,7 @@ public class emailTest {
 	@Test
 	public void phoneNumberTest() {
 		try {
-			boolean phoneNumberresult = email.phonenumber();
+			boolean phoneNumberresult = UserRegistration.phonenumber();
 			Assert.assertEquals(true, phoneNumberresult);
 		} catch (InvalidUserInputException e) {
 			System.out.println("Invalid phone number");
@@ -90,7 +91,7 @@ public class emailTest {
 	@Test
 	public void passwordRule4Test() {
 		try {
-			boolean passwordRule4Result = email.passwordRule4();
+			boolean passwordRule4Result = UserRegistration.passwordRule4();
 			Assert.assertEquals(true, passwordRule4Result);
 		} catch (InvalidUserInputException e) {
 			System.out.println("Invalid password");
