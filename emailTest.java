@@ -24,39 +24,39 @@ import static org.junit.Assert.assertEquals;
  *| 	abc+100@gmail.com  	|		abc@gmail.com.1a   |
  *|----------------------------------------------------|
  */
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 public class emailTest {
 
-	private String inputEmailId;
-	private Boolean expectedResult;
-
-	public emailTest(String inputEmailId, Boolean expectedResult) {
-		this.inputEmailId = inputEmailId;
-		this.expectedResult = expectedResult;
-	}
-
-	@Parameterized.Parameters
-	public static Collection emailIds() {
-		return Arrays.asList(new Object[][] {
-
-				{ "", true }, // null
-				{ "abc-100@yahoo.com", true }, // true
-				{ "abc+100@gmail.com", true }, 
-				{ "abc.100@yahoo.com", true }, 
-				{ "abc@gmail.com.1a", false }, // false
-				{ "abc@abc@gmail.com", false },
-				{ "abc.@gmail.com", false }, 
-				{ "abc@gmail.com.1a", false }});
-	}
-
-	@Test
-	public void testEmailId() {
-		try {
-			assertEquals(expectedResult, UserRegistration.emailId(inputEmailId));
-		} catch (InvalidUserInputException e) {
-			System.out.println("Invalid email id");
-		}
-	}
+//	private String inputEmailId;
+//	private Boolean expectedResult;
+//
+//	public emailTest(String inputEmailId, Boolean expectedResult) {
+//		this.inputEmailId = inputEmailId;
+//		this.expectedResult = expectedResult;
+//	}
+//
+//	@Parameterized.Parameters
+//	public static Collection emailIds() {
+//		return Arrays.asList(new Object[][] {
+//
+//				{ "", true }, // null
+//				{ "abc-100@yahoo.com", true }, // true
+//				{ "abc+100@gmail.com", true }, 
+//				{ "abc.100@yahoo.com", true }, 
+//				{ "abc@gmail.com.1a", false }, // false
+//				{ "abc@abc@gmail.com", false },
+//				{ "abc.@gmail.com", false }, 
+//				{ "abc@gmail.com.1a", false }});
+//	}
+//
+//	@Test
+//	public void testEmailId() {
+//		try {
+//			assertEquals(expectedResult, UserRegistration.emailId(inputEmailId));
+//		} catch (InvalidUserInputException e) {
+//			System.out.println("Invalid email id");
+//		}
+//	}
 
 	@Test
 	public void firstNameTest() {

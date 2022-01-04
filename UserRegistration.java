@@ -4,23 +4,26 @@ import java.util.*;
 import java.util.regex.*;
 import javax.swing.JOptionPane;
 
+@FunctionalInterface
+interface UserValidaterLamda {
+	boolean validate(String p) throws InvalidUserInputException;
+}
+
 public class UserRegistration {
 	/*
 	 * As a User need to enter a valid First Name -First name starts with Cap and
 	 * has minimum 3 characters
 	 */
 	public static boolean firstName() throws InvalidUserInputException {
-
 		String firstName = JOptionPane.showInputDialog("Enter first name");
 		final String regex = "^[A-Z]{1}[a-z]{2,}$";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(firstName);
-
-		if (firstName != null) {
-			if (m.matches() == true) {
-				System.out.println(firstName + "--->" + m.matches());
-				return m.matches();
-			}
+		UserValidaterLamda validateInput = (userInput) -> {
+			Pattern pattern = Pattern.compile(regex);
+			Matcher m = pattern.matcher(userInput);
+			return m.matches();
+		};
+		if (validateInput.validate(firstName) && (firstName != null) == true) {
+			return validateInput.validate(firstName);
 		}
 		throw new InvalidUserInputException();
 	}
@@ -32,13 +35,13 @@ public class UserRegistration {
 	public static boolean lastName() throws InvalidUserInputException {
 		String lastName = JOptionPane.showInputDialog("Enter last name");
 		final String regex = "^[A-Z]{1}[a-z]{2,}$";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(lastName);
-		if (lastName != null) {
-			if (m.matches() == true) {
-				System.out.println(lastName + "--->" + m.matches());
-				return m.matches();
-			}
+		UserValidaterLamda validateInput = (userInput) -> {
+			Pattern pattern = Pattern.compile(regex);
+			Matcher m = pattern.matcher(userInput);
+			return m.matches();
+		};
+		if (validateInput.validate(lastName) && (lastName != null) == true) {
+			return validateInput.validate(lastName);
 		}
 		throw new InvalidUserInputException();
 	}
@@ -49,16 +52,14 @@ public class UserRegistration {
 	 * positions
 	 */
 	public static boolean emailId(String emailId) throws InvalidUserInputException {
-//		String emailId = JOptionPane.showInputDialog("Enter email id");
 		final String regex = "[A-Za-z0-9.+-]*[a-zA-Z0-9]+[@][a-z0-9]+[.][a-z]+[.]?[a-z]+";
-//		String regex = "^(?=.[A-Za-z0-9.+-])+@([a-z]{1,}.[a-z]{2,})"; // doutu
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(emailId);
-		if (emailId != null) {
-			if (m.matches() == true) {
-				System.out.println(emailId + "--->" + m.matches());
-				return m.matches();
-			}
+		UserValidaterLamda validateInput = (userInput) -> {
+			Pattern pattern = Pattern.compile(regex);
+			Matcher m = pattern.matcher(userInput);
+			return m.matches();
+		};
+		if (validateInput.validate(emailId) && (emailId != null) == true) {
+			return validateInput.validate(emailId);
 		}
 		throw new InvalidUserInputException();
 	}
@@ -70,13 +71,13 @@ public class UserRegistration {
 	public static boolean phonenumber() throws InvalidUserInputException {
 		String phonenumber = JOptionPane.showInputDialog("Enter phone number");
 		final String regex = "(91\s)[5-9][0-9]{9}";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(phonenumber);
-		if (phonenumber != null) {
-			if (m.matches() == true) {
-				System.out.println(phonenumber + "--->" + m.matches());
-				return m.matches();
-			}
+		UserValidaterLamda validateInput = (userInput) -> {
+			Pattern pattern = Pattern.compile(regex);
+			Matcher m = pattern.matcher(userInput);
+			return m.matches();
+		};
+		if (validateInput.validate(phonenumber) && (phonenumber != null) == true) {
+			return validateInput.validate(phonenumber);
 		}
 		throw new InvalidUserInputException();
 	}
@@ -88,13 +89,13 @@ public class UserRegistration {
 	public static boolean passwordRule1() throws InvalidUserInputException {
 		String passwordRule1 = JOptionPane.showInputDialog("Enter password only (Rule-1 character) ");
 		final String regex = "^.*[a-zA-Z]{8,}.*$";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(passwordRule1);
-		if (passwordRule1 != null) {
-			if (m.matches() == true) {
-				System.out.println(passwordRule1 + "--->" + m.matches());
-				return m.matches();
-			}
+		UserValidaterLamda validateInput = (userInput) -> {
+			Pattern pattern = Pattern.compile(regex);
+			Matcher m = pattern.matcher(userInput);
+			return m.matches();
+		};
+		if (validateInput.validate(passwordRule1) && (passwordRule1 != null) == true) {
+			return validateInput.validate(passwordRule1);
 		}
 		throw new InvalidUserInputException();
 	}
@@ -105,13 +106,13 @@ public class UserRegistration {
 	public static boolean passwordRule2() throws InvalidUserInputException {
 		String passwordRule2 = JOptionPane.showInputDialog("Enter password (Rule-2 atleast one Uppercase character) ");
 		final String regex = "^(?=.*[a-z])(?=.*[A-Z]){8,}.*$";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(passwordRule2);
-		if (passwordRule2 != null) {
-			if (m.matches() == true) {
-				System.out.println(passwordRule2 + "--->" + m.matches());
-				return m.matches();
-			}
+		UserValidaterLamda validateInput = (userInput) -> {
+			Pattern pattern = Pattern.compile(regex);
+			Matcher m = pattern.matcher(userInput);
+			return m.matches();
+		};
+		if (validateInput.validate(passwordRule2) && (passwordRule2 != null) == true) {
+			return validateInput.validate(passwordRule2);
 		}
 		throw new InvalidUserInputException();
 	}
@@ -124,13 +125,13 @@ public class UserRegistration {
 		String passwordRule3 = JOptionPane
 				.showInputDialog("Enter password (Rule-3) at least 1 numeric with character ");
 		final String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,}.*$";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(passwordRule3);
-		if (passwordRule3 != null) {
-			if (m.matches() == true) {
-				System.out.println(passwordRule3 + "--->" + m.matches());
-				return m.matches();
-			}
+		UserValidaterLamda validateInput = (userInput) -> {
+			Pattern pattern = Pattern.compile(regex);
+			Matcher m = pattern.matcher(userInput);
+			return m.matches();
+		};
+		if (validateInput.validate(passwordRule3) && (passwordRule3 != null) == true) {
+			return validateInput.validate(passwordRule3);
 		}
 		throw new InvalidUserInputException();
 	}
@@ -142,13 +143,13 @@ public class UserRegistration {
 	public static boolean passwordRule4() throws InvalidUserInputException {
 		String passwordRule4 = JOptionPane.showInputDialog("Enter password (Rule-3) at least 1 Special Character ");
 		final String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[-+(){}_!@#$%^&*., ?]){8,}.*$";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(passwordRule4);
-		if (passwordRule4 != null) {
-			if (m.matches() == true) {
-				System.out.println(passwordRule4 + "--->" + m.matches());
-				return m.matches();
-			}
+		UserValidaterLamda validateInput = (userInput) -> {
+			Pattern pattern = Pattern.compile(regex);
+			Matcher m = pattern.matcher(userInput);
+			return m.matches();
+		};
+		if (validateInput.validate(passwordRule4) && (passwordRule4 != null) == true) {
+			return validateInput.validate(passwordRule4);
 		}
 		throw new InvalidUserInputException();
 	}
@@ -173,28 +174,4 @@ public class UserRegistration {
 			arr.add(emailIdSting());
 		}
 	}
-	/*|----------------------------------------------------|
-	 *|		(Valid) 			|		(Invalid)		   |	
-	 *|-------------------------|--------------------------|
-	 *| 	abc@yahoo.com 		|		abc123@.com		   |
-	 *|  	abc-100@yahoo.com 	|		abc.@gmail.com	   |	
-	 *| 	abc.100@yahoo.com 	|		abc@gmail.com.1a   |  	
-	 *| 	abc111@abc.com		|    	abc@abc@gmail.com  |
-	 *| 	abc+100@gmail.com  	|		abc@gmail.com.1a   |
-	 *|----------------------------------------------------|
-	 */
-//	public static void main(String[] args) {
-//		
-////		firstName(); //UC1
-////		lastName();  //UC2
-////		emailId(); //UC3
-////		phonenumber(); // UC4
-////		passwordRule1(); // UC5
-////		passwordRule2(); // UC6
-////		passwordRule3(); // UC7
-////		passwordRule4(); // UC8
-//		emailTesting(); // UC9
-//		System.out.print(arr);
-//
-//	}
 }
